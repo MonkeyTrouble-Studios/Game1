@@ -16,8 +16,14 @@ _global_script_class_icons={
 [application]
 
 config/name="Online Game"
+run/main_scene="res://interface/Menu.tscn"
 config/icon="res://icon.png"
+
+[layer_names]
+
+2d_render/layer_1=true
 
 [rendering]
 
+environment/default_clear_color=Color( 1, 1, 1, 1 )
 environment/default_environment="res://default_env.tres"

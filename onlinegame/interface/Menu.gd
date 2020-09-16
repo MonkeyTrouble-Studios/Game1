@@ -1,5 +1,6 @@
 extends Control
 
+var Network
 var _player_name = ""
 
 func _on_TextField_text_changed(new_text):
@@ -19,7 +20,3 @@ func _on_JoinButton_pressed():
 
 func _load_game():
 	get_tree().change_scene('res://Game.tscn')
-
-
-func _on_LineEdit_text_changed(new_text):
-	_player_name = new_text

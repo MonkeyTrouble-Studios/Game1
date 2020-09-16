@@ -45,6 +45,7 @@ margin_bottom = 134.0
 margin_right = 239.0
 margin_bottom = 65.0
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Nickname:"
 align = 1
 
@@ -70,3 +71,6 @@ margin_right = 404.0
 margin_bottom = 100.0
 texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 5 )
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer/LineEdit" to="." method="_on_TextField_text_changed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Join" to="." method="_on_JoinButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Create" to="." method="_on_CreateButton_pressed"]
