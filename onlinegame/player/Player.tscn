@@ -8,6 +8,7 @@
 
 [sub_resource type="Animation" id=2]
 resource_name = "LeftToRight"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
@@ -27,7 +28,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2, 0.5, 0.7 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.4 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3 ]
@@ -43,7 +44,7 @@ shape = SubResource( 1 )
 position = Vector2( 0.3423, -0.234188 )
 texture = ExtResource( 3 )
 hframes = 4
-frame = 3
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 anims/LeftToRight = SubResource( 2 )
