@@ -1,5 +1,5 @@
 extends Node
-var Network
+
 
 func _ready():
 	get_tree().connect('network_peer_disconnected', self, '_on_player_disconnected')

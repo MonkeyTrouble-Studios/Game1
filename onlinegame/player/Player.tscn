@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://player/sprite.png" type="Texture" id=1]
+[ext_resource path="res://interface/GUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/Player.gd" type="Script" id=2]
+[ext_resource path="res://player/sprite copy.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -39,8 +40,8 @@ script = ExtResource( 2 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 185.084, -1.27206 )
-texture = ExtResource( 1 )
+position = Vector2( 0.3423, -0.234188 )
+texture = ExtResource( 3 )
 hframes = 4
 frame = 3
 
@@ -49,9 +50,10 @@ anims/LeftToRight = SubResource( 2 )
 
 [node name="Shadow" type="Sprite" parent="."]
 
-[node name="GUI" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="GUI" parent="." instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -52.0086
+margin_top = -17.1056
+margin_right = 147.991
+margin_bottom = 182.894

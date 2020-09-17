@@ -15,7 +15,7 @@ func _ready():
 	get_tree().connect('network_peer_connected', self, '_on_player_connected')
 
 var frame = 0
-func _process(delta) :
+func _process(_delta) :
 	frame += 1
 	if frame % 50 == 0 :
 		print(frame / 50)
