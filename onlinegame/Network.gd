@@ -64,6 +64,7 @@ remote func _send_player_info(id, info):
 	var new_player = load('res://player/Player.tscn').instance()
 	new_player.name = str(id)
 	new_player.set_network_master(id)
+	new_player.set_z_index(2)
 	$'/root/Game/'.add_child(new_player)
 	new_player.init(info.name, info.position, true)
 

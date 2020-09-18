@@ -35,6 +35,7 @@ tracks/1/keys = {
 }
 
 [node name="Player" type="KinematicBody2D"]
+z_index = 2
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -42,6 +43,7 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0.3423, -0.234188 )
+z_index = 2
 texture = ExtResource( 3 )
 hframes = 4
 frame = 2
@@ -60,3 +62,5 @@ margin_right = 147.991
 margin_bottom = 182.894
 
 [node name="Camera2D" type="Camera2D" parent="."]
+current = true
+smoothing_enabled = true

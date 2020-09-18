@@ -4,7 +4,7 @@ const MOVE_SPEED = 4
 enum MoveDirection { UP, DOWN, LEFT, RIGHT, NONE }
 var movedir = Vector2(0,0)
 
-onready var joystick = get_parent().get_node("Joystick/Joystick_Button")
+onready var joystick = get_parent().get_node("Control/Joystick/Joystick_Button")
 puppet var puppet_position = Vector2()
 puppet var puppet_movement = MoveDirection.NONE
 
