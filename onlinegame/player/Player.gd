@@ -12,15 +12,25 @@ func _ready():
 	pass
 
 func _process(delta):
-	var dist = sqrt((joystick.get_button_pos()[0]*joystick.get_button_pos()[0])+(joystick.get_button_pos()[1]*joystick.get_button_pos()[1]))
-	move_and_slide(joystick.get_value() * MOVE_SPEED * dist)
-	var velocity = movedir * MOVE_SPEED
-	if (joystick.get_button_pos()[0] > 1) :
-		$Sprite/AnimationPlayer.play("LeftToRight")
-		$Sprite.flip_h = false
-	if (joystick.get_button_pos()[0] < -1) :
-		$Sprite.flip_h = true
-		$Sprite/AnimationPlayer.play("LeftToRight")
+	if is_network_master():
+		var dist = sqrt((joystick.get_button_pos()[0]*joystick.get_button_pos()[0])+(joystick.get_button_pos()[1]*joystick.get_button_pos()[1]))
+		move_and_slide(joystick.get_value() * MOVE_SPEED * dist)
+		var velocity = movedir * MOVE_SPEED
+		if (joystick.get_button_pos()[0] > 0.5) :
+			$Sprite/AnimationPlayer.play("LeftToRight")
+			$Sprite.flip_h = false
+		if (joystick.get_button_pos()[0] < -0.5) :
+			$Sprite.flip_h = true
+			$Sprite/AnimationPlayer.play("LeftToRight")
+	else: 
+		pass
+		#_move(puppet_movement)
+		#The _move function won't work yet as it expects feedback from
+		# the keys and not the joystick
+		#position = puppet_position
+	if get_tree().is_network_server():
+		Network.update_position(int(name), position)
+
 
 func _physics_process(_delta):
 	var direction = MoveDirection.NONE
@@ -77,7 +87,10 @@ func _move(direction):
 
 		MoveDirection.RIGHT:
 			move_and_collide(Vector2(MOVE_SPEED, 0))
-
+			
+func _move_joy(direction) :
+	direction = joystick.get_direction()
+	
 
 func init(nickname, start_position, is_puppet):
 	$GUI/Nickname.text = nickname

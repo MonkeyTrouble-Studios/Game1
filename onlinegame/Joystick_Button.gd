@@ -13,11 +13,19 @@ var deadzone = 1
 
 var count = 0
 
+enum JoystickMode {FIXED, DYNAMIC, FOLLOWING}
+
+export(JoystickMode) var joystick_mode := JoystickMode.FIXED
+
 func _process(delta):
 	count = count + 1
+	"""
 	if (count == 100) :
 		print(get_button_pos())
-		count = 0
+		print(get_direction())
+		print(get_value())
+		count = 0 
+	"""
 	if ongoing_drag == -1:
 		var pos_difference = (Vector2(0, 0) - radius) - position
 		position += pos_difference * return_accel * delta
@@ -25,6 +33,24 @@ func _process(delta):
 
 func get_button_pos():
 	return position + radius
+	
+func get_direction():
+	var x = get_button_pos()[0]
+	var y = get_button_pos()[1]	
+	var r
+	var degrees
+	if (y>=0):
+		if (x==0):
+			r=PI/2
+		else:
+			r=atan(y/x)
+	elif (y<0):
+		if (x==0):
+			r=PI/2+PI
+		else:
+			r=atan(y/x)+PI
+	degrees = r*360/(PI*2) #(0~360)
+	return degrees
 
 func _input(event):
 	if event is InputEventScreenDrag or (event is InputEventScreenTouch and event.is_pressed()):

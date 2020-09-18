@@ -17,7 +17,7 @@ position = Vector2( 136.669, 474.089 )
 texture = ExtResource( 5 )
 
 [node name="Joystick_Button" type="TouchScreenButton" parent="Joystick"]
-position = Vector2( -25.1161, -24.6905 )
+position = Vector2( -25.6017, -24.205 )
 normal = ExtResource( 3 )
 pressed = ExtResource( 2 )
 shape = SubResource( 1 )

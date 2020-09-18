@@ -58,3 +58,5 @@ margin_left = -52.0086
 margin_top = -17.1056
 margin_right = 147.991
 margin_bottom = 182.894
+
+[node name="Camera2D" type="Camera2D" parent="."]
